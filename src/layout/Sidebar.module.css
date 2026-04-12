@@ -1,0 +1,190 @@
+.sidebar {
+  width: var(--sidebar-width);
+  background: var(--bg-sidebar);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  transition:
+    width var(--transition),
+    background var(--transition);
+  overflow: hidden;
+  z-index: 50;
+}
+
+.collapsed {
+  width: 64px;
+}
+
+/* Logo */
+.logo {
+  padding: 20px 16px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid var(--divider);
+  min-height: 65px;
+}
+
+.logoIcon {
+  width: 36px;
+  height: 36px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logoIcon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.logoText {
+  font-size: 16px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #a78bfa, #7c5cfc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.3px;
+  white-space: nowrap;
+}
+
+/* Nav */
+.nav {
+  flex: 1;
+  padding: 16px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow-y: auto;
+}
+
+.navGroup {
+  margin-bottom: 8px;
+}
+
+.navLabel {
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  padding: 8px 10px 4px;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid transparent;
+  transition: all var(--transition);
+  white-space: nowrap;
+  position: relative;
+}
+
+.navItem:hover {
+  background: var(--bg-card-hover);
+  color: var(--text-primary);
+  border-color: var(--border);
+}
+
+.navItem.active {
+  background: var(--gradient-primary);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: var(--shadow-glow);
+}
+
+.navItem.active .navIcon {
+  opacity: 1;
+}
+
+.navIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  opacity: 0.7;
+  transition: opacity var(--transition);
+}
+
+.navItem:hover .navIcon,
+.navItem.active .navIcon {
+  opacity: 1;
+}
+
+.navText {
+  flex: 1;
+}
+
+.badge {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+}
+
+/* Footer */
+.footer {
+  padding: 16px 10px;
+  border-top: 1px solid var(--divider);
+}
+
+.proCard {
+  background: linear-gradient(
+    135deg,
+    rgba(108, 79, 246, 0.15),
+    rgba(168, 85, 247, 0.08)
+  );
+  border: 1px solid rgba(124, 92, 252, 0.2);
+  border-radius: var(--radius-md);
+  padding: 14px;
+}
+
+.proTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent-primary-light);
+  margin-bottom: 4px;
+}
+
+.proDesc {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.proBtn {
+  margin-top: 10px;
+  width: 100%;
+  padding: 8px;
+  background: var(--gradient-primary);
+  border: none;
+  border-radius: var(--radius-sm);
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: var(--font-main);
+  transition: opacity var(--transition);
+  letter-spacing: 0.02em;
+}
+
+.proBtn:hover {
+  opacity: 0.85;
+}
