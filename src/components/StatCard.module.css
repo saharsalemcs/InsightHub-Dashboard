@@ -1,0 +1,133 @@
+.statCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.statCard::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  opacity: 0.07;
+  transition: opacity var(--transition);
+}
+
+.statCard:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
+}
+
+.statCard:hover::before {
+  opacity: 0.14;
+}
+
+.color_purple::before {
+  background: var(--accent-primary);
+}
+.color_green::before {
+  background: var(--accent-green);
+}
+.color_blue::before {
+  background: var(--accent-blue);
+}
+.color_amber::before {
+  background: var(--accent-amber);
+}
+.color_coral::before {
+  background: var(--accent-coral);
+}
+.color_red::before {
+  background: var(--accent-red);
+}
+
+.statHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.statIcon {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon_purple {
+  background: var(--accent-primary-soft);
+  color: var(--accent-primary);
+}
+.icon_green {
+  background: var(--accent-green-bg);
+  color: var(--accent-green);
+}
+.icon_blue {
+  background: var(--accent-blue-bg);
+  color: var(--accent-blue);
+}
+.icon_amber {
+  background: var(--accent-amber-bg);
+  color: var(--accent-amber);
+}
+.icon_coral {
+  background: var(--accent-coral-bg);
+  color: var(--accent-coral);
+}
+.icon_red {
+  background: var(--accent-red-bg);
+  color: var(--accent-red);
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+}
+
+.badge.up {
+  color: var(--accent-green);
+  background: var(--accent-green-bg);
+}
+.badge.down {
+  color: var(--accent-red);
+  background: var(--accent-red-bg);
+}
+
+.statLabel {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.statValue {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -1px;
+  font-family: var(--font-mono);
+  line-height: 1;
+}
+
+.statSub {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
