@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "./AppLayout.module.css";
 import Sidebar from "./Sidebar";
 import Topbar from "./Topbar";
+import Footer from "./Footer";
 
 function AppLayout({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -13,6 +14,7 @@ function AppLayout({ children }) {
       <div className={styles.main}>
         <Topbar onMenuClick={() => setSidebarOpen((p) => !p)} />
         <main className={styles.content}>{children}</main>
+        <Footer />
       </div>
     </div>
   );

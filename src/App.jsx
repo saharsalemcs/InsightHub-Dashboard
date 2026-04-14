@@ -5,20 +5,23 @@ import Users from "./pages/Users";
 import Settings from "./pages/Settings";
 import Orders from "./pages/Orders";
 import { ThemeProvider } from "./context/ThemeContext";
+import { UsersProvider } from "./context/UsersContext";
 
 function App() {
   return (
     <ThemeProvider>
-      <BrowserRouter>
-        <AppLayout>
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/users" element={<Users />} />
-            <Route path="/orders" element={<Orders />} />
-            <Route path="/settings" element={<Settings />} />
-          </Routes>
-        </AppLayout>
-      </BrowserRouter>
+      <UsersProvider>
+        <BrowserRouter>
+          <AppLayout>
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/users" element={<Users />} />
+              <Route path="/orders" element={<Orders />} />
+              <Route path="/settings" element={<Settings />} />
+            </Routes>
+          </AppLayout>
+        </BrowserRouter>
+      </UsersProvider>
     </ThemeProvider>
   );
 }

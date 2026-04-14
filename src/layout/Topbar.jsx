@@ -34,7 +34,7 @@ function Topbar({ onMenuClick }) {
           </svg>
         </button>
         <div>
-          <div className={styles.tilte}>Welcome back, Admin 👋</div>
+          <div className={styles.title}>Welcome back, Admin 👋</div>
           <div className={styles.subtitle}>{today}</div>
         </div>
       </div>
