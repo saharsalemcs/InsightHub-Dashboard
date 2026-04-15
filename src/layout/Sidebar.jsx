@@ -22,11 +22,26 @@ function Sidebar({ isOpen }) {
       {/* Logo */}
       <div className={styles.logo}>
         <div className={styles.logoIcon}>
-          <svg viewBox="0 0 24 24" fill="white">
-            <path d="M4 4h7v7H4zm9 0h7v7h-7zm-9 9h7v7H4zm9 3h2v-2h2v2h2v2h-2v2h-2v-2h-2z" />
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="white"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M13 2L4.5 13.5H12L11 22L19.5 10.5H12L13 2Z" />
           </svg>
         </div>
-        {isOpen && <span className={styles.logoText}>InsightHub</span>}
+        {isOpen && (
+          <div className={styles.logoTextWrap}>
+            <div className={styles.logoName}>
+              <span className={styles.logoWhite}>Nova</span>
+              <span className={styles.logoPurple}>Dash</span>
+            </div>
+            <div className={styles.logoSub}>ADMIN PANEL</div>
+          </div>
+        )}
       </div>
 
       {/* Nav */}

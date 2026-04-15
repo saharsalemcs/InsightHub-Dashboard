@@ -1,0 +1,29 @@
+.userAvatar {
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+  letter-spacing: 0.03em;
+}
+
+.av_purple {
+  background: var(--av-purple);
+}
+.av_blue {
+  background: var(--av-blue);
+}
+.av_green {
+  background: var(--av-green);
+}
+.av_amber {
+  background: var(--av-amber);
+}
+.av_coral {
+  background: var(--av-coral);
+}
+.av_pink {
+  background: var(--av-pink);
+}

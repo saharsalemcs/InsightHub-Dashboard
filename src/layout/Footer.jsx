@@ -6,7 +6,7 @@ function Footer() {
   return (
     <footer className={styles.footer}>
       <span className={styles.copy}>
-        <span>&copy;</span> {year} InsightHub Pro. All rights reserved.
+        <span>&copy;</span> {year} NovaDash Pro. All rights reserved.
       </span>
       <div className={styles.links}>
         <a href="#privacy" className={styles.link}>

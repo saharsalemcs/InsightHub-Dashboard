@@ -29,10 +29,23 @@ function AddUserForm({ onSubmit, onClose }) {
     if (!form.name.trim()) errs.name = "Name is required";
     if (!form.email.trim()) errs.email = "Email is required";
     else if (!/\S+@\S+\.\S+/.test(form.email)) errs.email = "Invalid email";
+    return errs;
   };
 
-  const handleSubmit = function (e) {
+  const handleSubmit = async function (e) {
     e.preventDefault();
+    const errs = validate();
+    if (Object.keys(errs).length > 0) {
+      setErrors(errs);
+      return;
+    }
+    setSubmitting(true);
+    try {
+      await onSubmit(form);
+      onClose();
+    } catch {
+      setSubmitting(false);
+    }
   };
 
   return (

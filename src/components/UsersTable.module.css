@@ -1,0 +1,23 @@
+.tableWrap {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table thead th {
+  text-align: left;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding: 0 12px 12px 0;
+  border-bottom: 1px solid var(--divider);
+}
+
+.table thead th:last-child {
+  width: 60px;
+}

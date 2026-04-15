@@ -19,7 +19,7 @@ export function useSearch(items, searchFields = ["name", "email"]) {
     }
 
     if (filter !== "all") {
-      result.filter((item) => item.status === filter);
+      result = result.filter((item) => item.status === filter);
     }
 
     return result;

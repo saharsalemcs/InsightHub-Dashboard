@@ -8,6 +8,13 @@ import { useUsersApi } from "../hooks/useUsersApi";
 import MiniStat from "../components/MiniStat";
 import Toolbar from "../components/Toolbar";
 import { useSearch } from "../hooks/useSearch";
+import EmptyState from "../components/EmptyState";
+import UsersTable from "../components/UsersTable";
+import ConfirmDeleteUser from "../components/ConfirmDeleteUser";
+import Spinner from "../components/Spinner";
+import Error from "../components/Error";
+import Pagination from "../components/Pagination";
+import { usePagination } from "../hooks/usePagination";
 
 const FILTER_OPTIONS = [
   { label: "All", value: "all" },
@@ -15,10 +22,12 @@ const FILTER_OPTIONS = [
   { label: "Pending", value: "pending" },
   { label: "Inactive", value: "inactive" },
 ];
+const PER_PAGE = 5;
 
 function Users() {
   const [addUserOpen, setAddUserOpen] = useState(false);
-  const { users, loading, error } = useUsersApi();
+  const [deleteUser, setDeleteUser] = useState(null);
+  const { users, loading, error, addUser, removeUser } = useUsersApi();
 
   const stats = useMemo(() => {
     return [
@@ -41,6 +50,23 @@ function Users() {
     ];
   }, [users]);
   const { query, setQuery, filter, setFilter, filtered } = useSearch(users);
+  const { paginated, current, setCurrent, total, perPage } = usePagination(
+    filtered,
+    PER_PAGE,
+  );
+
+  if (loading) {
+    return (
+      <div className={styles.centered}>
+        <Spinner size={40} />
+        <p className={styles.loadingText}>Loading users...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return <Error error={error} />;
+  }
 
   return (
     <div className={styles.page}>
@@ -48,7 +74,7 @@ function Users() {
       <div className={styles.pageHeader}>
         <div>
           <h1 className={styles.pageTitle}>Users</h1>
-          <p className={styles.pageDesc}>{users.length} total members</p>
+          <p className={styles.pageDesc}>Manage your users base</p>
         </div>
         <Button onClick={() => setAddUserOpen(true)}>
           <svg
@@ -65,14 +91,12 @@ function Users() {
           Add User
         </Button>
       </div>
-
       {/* Stats Row */}
       <div className={styles.miniStats}>
         {stats.map((s) => (
           <MiniStat key={s.label} {...s} />
         ))}
       </div>
-
       {/* TAble  Card*/}
       <Card>
         {/* Toolbar */}
@@ -84,6 +108,25 @@ function Users() {
           setFilter={setFilter}
         />
         {/* Table */}
+        {filtered.length === 0 ? (
+          <EmptyState
+            icon={<UserIcon />}
+            title="No users found"
+            description="Try adjusting your search or filter."
+          />
+        ) : (
+          <UsersTable users={paginated} onDelete={setDeleteUser} />
+        )}
+
+        {/* Footer count */}
+        {filtered.length > 0 && (
+          <Pagination
+            total={total}
+            perPage={perPage}
+            current={current}
+            onChange={setCurrent}
+          />
+        )}
       </Card>
       {/* Add User Modal */}
       <Modal
@@ -91,10 +134,38 @@ function Users() {
         onClose={() => setAddUserOpen(false)}
         title="Add New User"
       >
-        <AddUserForm onClose={() => setAddUserOpen(false)} />
+        <AddUserForm onClose={() => setAddUserOpen(false)} onSubmit={addUser} />
+      </Modal>
+      {/* Delete User Modal */}
+
+      <Modal
+        isOpen={!!deleteUser}
+        onClose={() => setDeleteUser(null)}
+        title="Delete User"
+      >
+        <ConfirmDeleteUser
+          user={deleteUser}
+          onConfirm={() => removeUser(deleteUser.id)}
+          onClose={() => setDeleteUser(null)}
+        />
       </Modal>
     </div>
   );
 }
 
+function UserIcon() {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+    >
+      <circle cx="12" cy="8" r="5" />
+      <path d="M3 21v-2a7 7 0 0114 0v2" />
+    </svg>
+  );
+}
 export default Users;

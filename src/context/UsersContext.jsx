@@ -10,7 +10,11 @@ const initialState = {
 function usersReducer(state, action) {
   switch (action.type) {
     case "setUsers":
-      return { ...state, users: action.payload, loading: false };
+      return {
+        ...state,
+        users: [...action.payload].sort((a, b) => b.createdAt - a.createdAt),
+        loading: false,
+      };
     case "addUser":
       return { ...state, users: [action.payload, ...state.users] };
     case "deleteUser":
