@@ -7,6 +7,7 @@ import IconButton from "./IconButton";
 const UserRow = memo(function UserRow({ user: u, index, onDelete }) {
   return (
     <tr
+      key={u.id}
       className={`${styles.row} animate-fadeInUp`}
       style={{ animationDelay: `${index * 0.04}s` }}
     >
