@@ -8,7 +8,6 @@ function Error({ error }) {
       <EmptyState
         icon={<ErrorIcon />}
         title="Could not load users"
-        description={`Make sure json-server is running on port 3001.\n${error}`}
         action={<Button onClick={() => window.location.reload()}>Retry</Button>}
       />
     </div>

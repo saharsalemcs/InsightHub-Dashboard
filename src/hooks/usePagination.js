@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 export function usePagination(items, perPage = 5) {
   const [current, setCurrent] = useState(1);
@@ -6,9 +6,12 @@ export function usePagination(items, perPage = 5) {
   const totalPages = Math.ceil(items.length / perPage);
 
   /* reset to page 1 whenever items list changes (search/filter) */
-  useEffect(() => {
-    setCurrent(1);
-  }, [items.length]);
+  useEffect(
+    function () {
+      setCurrent(1);
+    },
+    [items.length],
+  );
 
   const paginated = useMemo(() => {
     const start = (current - 1) * perPage;
@@ -19,8 +22,8 @@ export function usePagination(items, perPage = 5) {
     paginated,
     current,
     setCurrent,
-    total: items.length,
     perPage,
+    total: items.length,
     totalPages,
   };
 }

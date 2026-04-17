@@ -22,7 +22,6 @@ const FILTER_OPTIONS = [
   { label: "Pending", value: "pending" },
   { label: "Inactive", value: "inactive" },
 ];
-const PER_PAGE = 5;
 
 function Users() {
   const [addUserOpen, setAddUserOpen] = useState(false);
@@ -50,10 +49,8 @@ function Users() {
     ];
   }, [users]);
   const { query, setQuery, filter, setFilter, filtered } = useSearch(users);
-  const { paginated, current, setCurrent, total, perPage } = usePagination(
-    filtered,
-    PER_PAGE,
-  );
+  const { paginated, current, setCurrent, total, perPage } =
+    usePagination(filtered);
 
   if (loading) {
     return (
@@ -106,6 +103,7 @@ function Users() {
           setQuery={setQuery}
           filter={filter}
           setFilter={setFilter}
+          placeholder="Search by name or email..."
         />
         {/* Table */}
         {filtered.length === 0 ? (

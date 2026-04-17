@@ -24,3 +24,10 @@ export const deleteUser = async function (id) {
   if (!res.ok) throw new Error("failed to delete user");
   return res.json();
 };
+
+/* ── Orders ── */
+export const getOrders = async function () {
+  const res = await fetch(`${BASE_URL}/orders`);
+  if (!res.ok) throw new Error("failed to fetch orders");
+  return res.json();
+};
