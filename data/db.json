@@ -1,42 +1,6 @@
 {
   "users": [
     {
-      "id": "1",
-      "name": "Omar Hassan",
-      "email": "omar.hassan@example.com",
-      "role": "Admin",
-      "status": "active",
-      "avatar": "OH",
-      "color": "blue",
-      "orders": 3,
-      "joinedAt": "2026-04-10",
-      "createdAt": 22
-    },
-    {
-      "id": "2",
-      "name": "Samar Ali",
-      "email": "sara.ali@example.com",
-      "role": "Editor",
-      "status": "inactive",
-      "avatar": "SA",
-      "color": "purple",
-      "orders": 1,
-      "joinedAt": "2026-04-12",
-      "createdAt": 23
-    },
-    {
-      "id": "3",
-      "name": "Ahmed Mostafa",
-      "email": "ahmed.mostafa@example.com",
-      "role": "Viewer",
-      "status": "active",
-      "avatar": "AM",
-      "color": "coral",
-      "orders": 7,
-      "joinedAt": "2026-04-15",
-      "createdAt": 24
-    },
-    {
       "id": "-JNmAt9k9bM",
       "name": "Amora",
       "email": "amora@mail.com",
@@ -61,16 +25,40 @@
       "createdAt": 1776232971763
     },
     {
-      "id": "sbTa3THKE0o",
-      "name": "fdgfdgre",
+      "id": "vLtMFXNYHrQ",
+      "name": "sahar salem",
+      "email": "saharsalemcs@gmail.com",
+      "role": "Viewer",
+      "status": "pending",
+      "avatar": "SS",
+      "color": "blue",
+      "orders": 0,
+      "joinedAt": "2026-04-18",
+      "createdAt": 1776492017954
+    },
+    {
+      "id": "5kiNYpvUP2I",
+      "name": "ldsfldf",
       "email": "saharsalemcs@gmail.com",
       "role": "Viewer",
       "status": "active",
-      "avatar": "F",
-      "color": "coral",
+      "avatar": "L",
+      "color": "green",
       "orders": 0,
       "joinedAt": "2026-04-18",
-      "createdAt": 1776472713553
+      "createdAt": 1776494169600
+    },
+    {
+      "id": "mGlo7oBBPzY",
+      "name": "Amora Habib Sahora",
+      "email": "saharsalemcs@gmail.com",
+      "role": "Admin",
+      "status": "active",
+      "avatar": "AH",
+      "color": "pink",
+      "orders": 0,
+      "joinedAt": "2026-04-18",
+      "createdAt": 1776494266287
     }
   ],
   "orders": [
