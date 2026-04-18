@@ -1,5 +1,5 @@
 import styles from "./Pagination.module.css";
-import Button from "./Button";
+import Button from "./UI/Button";
 
 function Pagination({ total, perPage, current, onChange }) {
   const totalPages = Math.ceil(total / perPage);

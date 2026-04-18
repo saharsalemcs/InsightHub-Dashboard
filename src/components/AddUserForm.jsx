@@ -1,7 +1,7 @@
 import styles from "./AddUserForm.module.css";
 import { useState } from "react";
-import Button from "./Button";
-import Spinner from "./Spinner";
+import Button from "./UI/Button";
+import Spinner from "./UI/Spinner";
 
 const ROLES = ["Admin", "Editor", "Viewer"];
 const STATUSES = ["active", "pending", "inactive"];

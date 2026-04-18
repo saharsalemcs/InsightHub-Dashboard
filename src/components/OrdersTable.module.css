@@ -14,7 +14,7 @@
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.07em;
-  padding: 0 16px 12px 0;
+  padding: 0 16px 12px;
   border-bottom: 1px solid var(--divider);
 }
 
@@ -29,7 +29,7 @@
   background: var(--bg-card-hover);
 }
 .table tbody td {
-  padding: 13px 16px 13px 0;
+  padding: 13px 16px 13px;
   font-size: 13px;
   color: var(--text-secondary);
   vertical-align: middle;
@@ -55,4 +55,39 @@
   font-family: var(--font-mono);
   font-size: 11px;
   color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .table thead th,
+  .table tbody td {
+    padding-right: 8px;
+  }
+
+  /* إخفاء Date */
+  .table thead th:nth-child(5),
+  .table tbody td:nth-child(5) {
+    display: none;
+  }
+
+  .product {
+    font-size: 12px;
+  }
+  .amount {
+    font-size: 12px;
+  }
+  .idCell {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* إخفاء User ID كمان */
+  .table thead th:nth-child(3),
+  .table tbody td:nth-child(3) {
+    display: none;
+  }
+
+  .product {
+    font-size: 11px;
+  }
 }

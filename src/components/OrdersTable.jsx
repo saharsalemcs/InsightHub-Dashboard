@@ -7,7 +7,7 @@ function OrdersTable({ orders }) {
       <table className={styles.table}>
         <thead>
           <tr>
-            <th>order id</th>
+            <th>#id</th>
             <th>Product</th>
             <th>User ID</th>
             <th>Amount</th>

@@ -148,6 +148,42 @@
   margin-top: 3px;
   font-family: var(--font-mono);
 }
+@media (max-width: 768px) {
+  .activityContent {
+    padding: 0 0 14px;
+  }
+
+  .activityText {
+    font-size: 12px;
+  }
+  .activityTime {
+    font-size: 10px;
+  }
+
+  .activityDot {
+    width: 7px;
+    height: 7px;
+  }
+
+  .activityLine {
+    min-height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .activityContent {
+    padding: 0 0 10px;
+  }
+
+  /* إخفاء الـ line عشان تبقى أبسط */
+  .activityLine {
+    display: none;
+  }
+
+  .activityItem {
+    gap: 8px;
+  }
+}
 
 @keyframes fadeInUp {
   from {

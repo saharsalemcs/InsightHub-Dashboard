@@ -1,21 +1,22 @@
 import { useEffect, useState } from "react";
-import Card from "../components/Card";
+import Card from "../components/UI/Card";
 import Toolbar from "../components/Toolbar";
 import { useSearch } from "../hooks/useSearch";
 import styles from "./Orders.module.css";
-import EmptyState from "../components/EmptyState";
+import EmptyState from "../components/UI/EmptyState";
 import { getOrders } from "../api/api";
 import OrdersTable from "../components/OrdersTable";
 import { usePagination } from "../hooks/usePagination";
 import Pagination from "../components/Pagination";
 import StatCard from "../components/StatCard";
-import { CartIcon, CheckIcon, ClockIcon, XIcon } from "../components/Icons";
+import { ShoppingCart, CircleCheck, CircleX, Clock } from "lucide-react";
+import Spinner from "../components/UI/Spinner";
 
 const FILTERS = [
-  { label: "All", valueue: "all" },
-  { label: "Completed", valueue: "completed" },
-  { label: "Pending", valueue: "pending" },
-  { label: "Cancelled", valueue: "cancelled" },
+  { label: "All", value: "all" },
+  { label: "Completed", value: "completed" },
+  { label: "Pending", value: "pending" },
+  { label: "Cancelled", value: "cancelled" },
 ];
 
 function Orders() {
@@ -36,6 +37,19 @@ function Orders() {
       .catch(() => setLoading(false));
   }, []);
 
+  const completed = orders.filter((o) => o.status === "completed").length;
+  const pending = orders.filter((o) => o.status === "pending").length;
+  const cancelled = orders.filter((o) => o.status === "cancelled").length;
+
+  if (loading) {
+    return (
+      <div className={styles.centered}>
+        <Spinner size={40} />
+        <p className={styles.loadingText}>Loading Orders...</p>
+      </div>
+    );
+  }
+
   return (
     <div className={styles.page}>
       {/* Page Header */}
@@ -50,41 +64,41 @@ function Orders() {
         <StatCard
           variant="horizontal"
           label="Total Order"
-          value={40}
+          value={total || 30}
           badge="12%"
-          badgeUp={true}
+          badgeType="up"
           color="blue"
-          icon={<CartIcon />}
+          icon={<ShoppingCart />}
         />
 
         <StatCard
           variant="horizontal"
           label="Completed"
-          value={40}
+          value={completed || 12}
           badge="8%"
-          badgeUp={true}
+          badgeType="up"
           color="green"
-          icon={<CheckIcon />}
+          icon={<CircleCheck />}
         />
 
         <StatCard
           variant="horizontal"
           label="Pending"
-          value={40}
+          value={pending || 6}
           badge="3%"
-          badgeUp={true}
+          badgeType="up"
           color="amber"
-          icon={<ClockIcon />}
+          icon={<Clock />}
         />
 
         <StatCard
           variant="horizontal"
           label="Cancelled"
-          value={40}
+          value={cancelled || 3}
           badge="5%"
-          badgeUp={false}
+          badgeType="down"
           color="red"
-          icon={<XIcon />}
+          icon={<CircleX />}
         />
       </div>
 
@@ -114,9 +128,9 @@ function Orders() {
         {filtered.length > 0 && (
           <Pagination
             total={total}
+            perPage={perPage}
             current={current}
             onChange={setCurrent}
-            perPage={perPage}
           />
         )}
       </Card>

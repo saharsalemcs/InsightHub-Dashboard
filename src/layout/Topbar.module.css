@@ -18,6 +18,7 @@
   display: flex;
   align-items: center;
   gap: 14px;
+  min-width: 0;
 }
 
 .menuBtn {
@@ -45,12 +46,18 @@
   font-weight: 700;
   color: var(--text-primary);
   letter-spacing: -0.3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .subtitle {
   font-size: 11px;
   color: var(--text-muted);
   margin-top: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .actions {
@@ -111,4 +118,44 @@
 
 .avatar:hover {
   border-color: var(--accent-primary);
+}
+
+/* ── Tablet: 768px ── */
+@media (max-width: 768px) {
+  .topbar {
+    padding: 0 16px;
+    gap: 10px;
+  }
+
+  .title {
+    font-size: 15px;
+  }
+
+  .subtitle {
+    display: none;
+  }
+}
+
+/* ── Mobile: 480px ── */
+@media (max-width: 480px) {
+  .topbar {
+    padding: 0 12px;
+    gap: 8px;
+  }
+
+  .actions {
+    gap: 4px;
+  }
+
+  .title {
+    display: none;
+  }
+
+  .themeToggle,
+  .iconBtn,
+  .menuBtn,
+  .avatar {
+    width: 32px;
+    height: 32px;
+  }
 }

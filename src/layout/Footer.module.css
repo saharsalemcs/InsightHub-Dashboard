@@ -44,3 +44,33 @@
   opacity: 0.4;
   flex-shrink: 0;
 }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .footer {
+    padding: 14px 16px;
+    gap: 6px;
+  }
+
+  .copy {
+    /* font-size: 11px; */
+  }
+
+  .links {
+    gap: 8px;
+  }
+
+  .link {
+    /* font-size: 11px; */
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 12px;
+  }
+
+  /* .links {
+    display: none;
+  } */
+}

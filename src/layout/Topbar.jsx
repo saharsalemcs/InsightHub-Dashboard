@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
 import styles from "./Topbar.module.css";
 
@@ -97,9 +98,9 @@ function Topbar({ onMenuClick }) {
         </button>
 
         {/* Avatar */}
-        <div className={styles.avatar} title="Admin user">
+        <Link to="/settings" className={styles.avatar} title="Admin user">
           AU
-        </div>
+        </Link>
       </div>
     </header>
   );

@@ -3,14 +3,9 @@ import { useUsersApi } from "../hooks/useUsersApi";
 import { useEffect, useState } from "react";
 import { getOrders } from "../api/api";
 import StatCard from "../components/StatCard";
-import Card from "../components/Card";
-import CardHeader from "../components/CardHeader";
-import {
-  UsersIcon,
-  ActiveIcon,
-  ClockIconDash,
-  OrderIcon,
-} from "../components/Icons";
+import Card from "../components/UI/Card";
+import CardHeader from "../components/UI/CardHeader";
+
 import {
   BarChart,
   Bar,
@@ -23,6 +18,7 @@ import {
   AreaChart,
 } from "recharts";
 import RecentUsersTable from "../components/RecentUsersTable";
+import { ShoppingCart, Activity, Users, Clock } from "lucide-react";
 
 /* ── Static chart data ── */
 const ordersPerDay = [
@@ -119,7 +115,7 @@ function Dashboard() {
         <StatCard
           color="purple"
           delay={0.05}
-          icon={<UsersIcon />}
+          icon={<Users />}
           label="Total Users"
           value={users.length || 15}
           badge="+12.5%"
@@ -129,7 +125,7 @@ function Dashboard() {
         <StatCard
           color="green"
           delay={0.1}
-          icon={<ActiveIcon />}
+          icon={<Activity />}
           label="Active Users"
           value={activeUsers || 13}
           badge="+8.2%"
@@ -139,7 +135,7 @@ function Dashboard() {
         <StatCard
           color="blue"
           delay={0.15}
-          icon={<OrderIcon />}
+          icon={<ShoppingCart />}
           label="Total Orders"
           value={totalOrders || 12}
           badge="+23.1%"
@@ -149,7 +145,7 @@ function Dashboard() {
         <StatCard
           color="amber"
           delay={0.2}
-          icon={<ClockIconDash />}
+          icon={<Clock />}
           label="Pending Orders"
           value={pendingOrders || 2}
           badge="-4.3%"
@@ -159,140 +155,151 @@ function Dashboard() {
       </div>
 
       {/* Charts */}
-      <Card className={`${styles.chartCard} animate-fadeInUp delay-3`}>
-        <CardHeader
-          title="Orders per Day"
-          subTitle="Daily order volume — last 7 days"
-        />
-        <ResponsiveContainer width="100%" height={210}>
-          <AreaChart
-            data={ordersPerDay}
-            margin={{ top: 4, right: 4, left: -20, bottom: 0 }}
-          >
-            <defs>
-              <linearGradient id="ordersGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#7c5cfc" stopOpacity={0.25} />
-                <stop offset="100%" stopColor="#7c5cfc" stopOpacity={0} />
-              </linearGradient>
-            </defs>
-            <CartesianGrid
-              strokeDasharray="3 3"
-              stroke="rgba(255,255,255,0.04)"
-              vertical={false}
-            />
-            <XAxis
-              dataKey="day"
-              tick={{
-                fill: "var(--text-muted)",
-                fontSize: 11,
-                fontFamily: "var(--font-mono)",
-              }}
-              axisLine={false}
-              tickLine={false}
-            />
-            <YAxis
-              tick={{
-                fill: "var(--text-muted)",
-                fontSize: 11,
-                fontFamily: "var(--font-mono)",
-              }}
-              axisLine={false}
-              tickLine={false}
-            />
-            <Tooltip content={<CustomTooltip />} />
-            <Area
-              type="monotone"
-              dataKey="orders"
-              stroke="#7c5cfc"
-              strokeWidth={2.5}
-              fill="url(#ordersGrad)"
-              dot={{
-                r: 4,
-                fill: "#7c5cfc",
-                strokeWidth: 2,
-                stroke: "var(--bg-card)",
-              }}
-              activeDot={{ r: 6 }}
-            />
-          </AreaChart>
-        </ResponsiveContainer>
-      </Card>
+      <div className={styles.chartsRow}>
+        {/* lIne / Area chart */}
+        <Card className={`${styles.chartCard} animate-fadeInUp delay-3`}>
+          <CardHeader
+            title="Orders per Day"
+            subTitle="Daily order volume — last 7 days"
+          />
+          <ResponsiveContainer width="100%" height={210}>
+            <AreaChart
+              data={ordersPerDay}
+              margin={{ top: 4, right: 4, left: -20, bottom: 0 }}
+            >
+              <defs>
+                <linearGradient id="ordersGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#7c5cfc" stopOpacity={0.25} />
+                  <stop offset="100%" stopColor="#7c5cfc" stopOpacity={0} />
+                </linearGradient>
+              </defs>
+              <CartesianGrid
+                strokeDasharray="3 3"
+                stroke="rgba(255,255,255,0.04)"
+                vertical={false}
+              />
+              <XAxis
+                dataKey="day"
+                tick={{
+                  fill: "var(--text-muted)",
+                  fontSize: 11,
+                  fontFamily: "var(--font-mono)",
+                }}
+                axisLine={false}
+                tickLine={false}
+              />
+              <YAxis
+                tick={{
+                  fill: "var(--text-muted)",
+                  fontSize: 11,
+                  fontFamily: "var(--font-mono)",
+                }}
+                axisLine={false}
+                tickLine={false}
+              />
+              <Tooltip content={<CustomTooltip />} />
+              <Area
+                type="monotone"
+                dataKey="orders"
+                stroke="#7c5cfc"
+                strokeWidth={2.5}
+                fill="url(#ordersGrad)"
+                dot={{
+                  r: 4,
+                  fill: "#7c5cfc",
+                  strokeWidth: 2,
+                  stroke: "var(--bg-card)",
+                }}
+                activeDot={{ r: 6 }}
+              />
+            </AreaChart>
+          </ResponsiveContainer>
+        </Card>
 
-      {/* Bar chart */}
-      <Card className={`${styles.chartCard} animate-fadeInUp delay-4`}>
-        <CardHeader title="Revenue / Month" subtitle="Monthly revenue in USD" />
-        <ResponsiveContainer width="100%" height={210}>
-          <BarChart
-            data={revenuePerMonth}
-            margin={{ top: 4, right: 4, left: -20, bottom: 0 }}
-          >
-            <CartesianGrid
-              strokeDasharray="3 3"
-              stroke="rgba(255,255,255,0.04)"
-              vertical={false}
-            />
-            <XAxis
-              dataKey="month"
-              tick={{
-                fill: "var(--text-muted)",
-                fontSize: 11,
-                fontFamily: "var(--font-mono)",
-              }}
-              axisLine={false}
-              tickLine={false}
-            />
-            <YAxis
-              tick={{
-                fill: "var(--text-muted)",
-                fontSize: 11,
-                fontFamily: "var(--font-mono)",
-              }}
-              axisLine={false}
-              tickLine={false}
-              tickFormatter={(v) => `$${v / 1000}k`}
-            />
-            <Tooltip content={<CustomTooltip />} />
-            <Bar
-              dataKey="revenue"
-              fill="#7c5cfc"
-              radius={[6, 6, 0, 0]}
-              opacity={0.85}
-            />
-          </BarChart>
-        </ResponsiveContainer>
-      </Card>
+        {/* Bar chart */}
+        <Card className={`${styles.chartCard} animate-fadeInUp delay-4`}>
+          <CardHeader
+            title="Revenue / Month"
+            subtitle="Monthly revenue in USD"
+          />
+          <ResponsiveContainer width="100%" height={210}>
+            <BarChart
+              data={revenuePerMonth}
+              margin={{ top: 4, right: 4, left: -20, bottom: 0 }}
+            >
+              <CartesianGrid
+                strokeDasharray="3 3"
+                stroke="rgba(255,255,255,0.04)"
+                vertical={false}
+              />
+              <XAxis
+                dataKey="month"
+                tick={{
+                  fill: "var(--text-muted)",
+                  fontSize: 11,
+                  fontFamily: "var(--font-mono)",
+                }}
+                axisLine={false}
+                tickLine={false}
+              />
+              <YAxis
+                tick={{
+                  fill: "var(--text-muted)",
+                  fontSize: 11,
+                  fontFamily: "var(--font-mono)",
+                }}
+                axisLine={false}
+                tickLine={false}
+                tickFormatter={(v) => `$${v / 1000}k`}
+              />
+              <Tooltip content={<CustomTooltip />} />
+              <Bar
+                dataKey="revenue"
+                fill="#7c5cfc"
+                radius={[6, 6, 0, 0]}
+                opacity={0.85}
+              />
+            </BarChart>
+          </ResponsiveContainer>
+        </Card>
+      </div>
 
-      {/* Recent Users */}
-      <Card className="animate-fadeInUp delay-5">
-        <CardHeader title="Recent Users" subTitle="Latest registered members" />
-        <RecentUsersTable users={users} />
-      </Card>
+      <div className={styles.bottomRow}>
+        {/* Recent Users */}
+        <Card className="animate-fadeInUp delay-5">
+          <CardHeader
+            title="Recent Users"
+            subTitle="Latest registered members"
+          />
+          <RecentUsersTable users={users} />
+        </Card>
 
-      {/* Recent Activity */}
-      <Card className="animate-fadeInUp delay-6">
-        <CardHeader title="Recent Activity" subTitle="Latest system events" />
+        {/* Recent Activity */}
+        <Card className="animate-fadeInUp delay-6">
+          <CardHeader title="Recent Activity" subTitle="Latest system events" />
 
-        <div className={styles.activityList}>
-          {ACTIVITY.map((a, i) => (
-            <div key={a.id} className={styles.activityItem}>
-              <div className={styles.activityDotCol}>
-                <div
-                  className={`${styles.activityDot} ${styles[`dot_${a.color}`]}`}
-                />
-                {i < ACTIVITY.length - 1 && (
-                  <div className={styles.activityLine} />
-                )}
-              </div>
-              <div className={styles.activityContent}>
-                <div className={styles.activityText}>
-                  <strong>{a.text}</strong> {a.sub}
+          <div className={styles.activityList}>
+            {ACTIVITY.map((a, i) => (
+              <div key={a.id} className={styles.activityItem}>
+                <div className={styles.activityDotCol}>
+                  <div
+                    className={`${styles.activityDot} ${styles[`dot_${a.color}`]}`}
+                  />
+                  {i < ACTIVITY.length - 1 && (
+                    <div className={styles.activityLine} />
+                  )}
                 </div>
-                <div className={styles.activityTime}>{a.time}</div>
+                <div className={styles.activityContent}>
+                  <div className={styles.activityText}>
+                    <strong>{a.text}</strong> {a.sub}
+                  </div>
+                  <div className={styles.activityTime}>{a.time}</div>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </Card>
+            ))}
+          </div>
+        </Card>
+      </div>
     </div>
   );
 }

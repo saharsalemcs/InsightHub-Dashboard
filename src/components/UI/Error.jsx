@@ -2,7 +2,7 @@ import Button from "./Button";
 import EmptyState from "./EmptyState";
 import styles from "./Error.module.css";
 
-function Error({ error }) {
+function Error() {
   return (
     <div className={styles.centered}>
       <EmptyState

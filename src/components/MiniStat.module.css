@@ -38,3 +38,33 @@
   margin-top: 2px;
   font-weight: 500;
 }
+
+@media (max-width: 768px) {
+  .miniStats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .miniVal {
+    font-size: 20px;
+  }
+  .miniLabel {
+    font-size: 11px;
+  }
+  .miniStat {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .miniStats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .miniVal {
+    font-size: 18px;
+  }
+  .miniStat {
+    padding: 10px 12px;
+  }
+}

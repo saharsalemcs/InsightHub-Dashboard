@@ -1,18 +1,18 @@
 import { useMemo, useState } from "react";
-import Button from "../components/Button";
+import Button from "../components/UI/Button";
 import Modal from "../components/Modal";
-import Card from "../components/Card";
+import Card from "../components/UI/Card";
 import styles from "./Users.module.css";
 import AddUserForm from "../components/AddUserForm";
 import { useUsersApi } from "../hooks/useUsersApi";
 import MiniStat from "../components/MiniStat";
 import Toolbar from "../components/Toolbar";
 import { useSearch } from "../hooks/useSearch";
-import EmptyState from "../components/EmptyState";
+import EmptyState from "../components/UI/EmptyState";
 import UsersTable from "../components/UsersTable";
 import ConfirmDeleteUser from "../components/ConfirmDeleteUser";
-import Spinner from "../components/Spinner";
-import Error from "../components/Error";
+import Spinner from "../components/UI/Spinner";
+import Error from "../components/UI/Error";
 import Pagination from "../components/Pagination";
 import { usePagination } from "../hooks/usePagination";
 
@@ -62,7 +62,7 @@ function Users() {
   }
 
   if (error) {
-    return <Error error={error} />;
+    return <Error />;
   }
 
   return (
