@@ -1,8 +1,8 @@
 import { memo } from "react";
 import UserAvatar from "./UserAvatar";
 import styles from "./UserRow.module.css";
-import StatusBadge from "./StatusBadge";
-import IconButton from "./IconButton";
+import StatusBadge from "../common/StatusBadge";
+import IconButton from "../UI/IconButton";
 
 const UserRow = memo(function UserRow({ user: u, index, onDelete }) {
   return (

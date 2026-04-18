@@ -1,5 +1,5 @@
 import styles from "./OrdersTable.module.css";
-import StatusBadge from "./StatusBadge";
+import StatusBadge from "../common/StatusBadge";
 
 function OrdersTable({ orders }) {
   return (

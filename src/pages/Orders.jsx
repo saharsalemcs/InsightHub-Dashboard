@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import Card from "../components/UI/Card";
-import Toolbar from "../components/Toolbar";
+import Toolbar from "../components/common/Toolbar";
 import { useSearch } from "../hooks/useSearch";
 import styles from "./Orders.module.css";
 import EmptyState from "../components/UI/EmptyState";
 import { getOrders } from "../api/api";
-import OrdersTable from "../components/OrdersTable";
+import OrdersTable from "../components/orders/OrdersTable";
 import { usePagination } from "../hooks/usePagination";
-import Pagination from "../components/Pagination";
-import StatCard from "../components/StatCard";
+import Pagination from "../components/common/Pagination";
+import StatCard from "../components/common/StatCard";
 import { ShoppingCart, CircleCheck, CircleX, Clock } from "lucide-react";
 import Spinner from "../components/UI/Spinner";
 

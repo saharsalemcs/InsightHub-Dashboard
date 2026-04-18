@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Button from "./UI/Button";
+import Button from "../UI/Button";
 import styles from "./ConfirmDeleteUser.module.css";
-import Spinner from "./UI/Spinner";
+import Spinner from "../UI/Spinner";
 
 function ConfirmDeleteUser({ user, onConfirm, onClose }) {
   const [loading, setLoading] = useState(false);

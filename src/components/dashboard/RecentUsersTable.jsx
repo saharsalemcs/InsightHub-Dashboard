@@ -1,5 +1,5 @@
 import styles from "./RecentUsersTable.module.css";
-import StatusBadge from "./StatusBadge";
+import StatusBadge from "../common/StatusBadge";
 
 function RecentUsersTable({ users }) {
   return (

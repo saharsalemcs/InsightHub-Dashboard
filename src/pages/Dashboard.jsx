@@ -2,7 +2,7 @@ import styles from "./Dashboard.module.css";
 import { useUsersApi } from "../hooks/useUsersApi";
 import { useEffect, useState } from "react";
 import { getOrders } from "../api/api";
-import StatCard from "../components/StatCard";
+import StatCard from "../components/common/StatCard";
 import Card from "../components/UI/Card";
 import CardHeader from "../components/UI/CardHeader";
 
@@ -17,7 +17,7 @@ import {
   Area,
   AreaChart,
 } from "recharts";
-import RecentUsersTable from "../components/RecentUsersTable";
+import RecentUsersTable from "../components/dashboard/RecentUsersTable";
 import { ShoppingCart, Activity, Users, Clock } from "lucide-react";
 
 /* ── Static chart data ── */

@@ -14,7 +14,7 @@
     },
     {
       "id": "2",
-      "name": "Sara Ali",
+      "name": "Samar Ali",
       "email": "sara.ali@example.com",
       "role": "Editor",
       "status": "inactive",
@@ -59,54 +59,6 @@
       "orders": 0,
       "joinedAt": "2026-04-15",
       "createdAt": 1776232971763
-    },
-    {
-      "id": "UmfZlLM9-fE",
-      "name": "fdd",
-      "email": "saharsalemcs@gmail.com",
-      "role": "Viewer",
-      "status": "active",
-      "avatar": "F",
-      "color": "coral",
-      "orders": 0,
-      "joinedAt": "2026-04-16",
-      "createdAt": 1776379538784
-    },
-    {
-      "id": "Bjf8CyCLQJY",
-      "name": "fdsff",
-      "email": "saharsalemcs@gmail.com",
-      "role": "Editor",
-      "status": "active",
-      "avatar": "F",
-      "color": "pink",
-      "orders": 0,
-      "joinedAt": "2026-04-18",
-      "createdAt": 1776472690034
-    },
-    {
-      "id": "cqsBvTK6YOo",
-      "name": "fdsf",
-      "email": "saharsalemcs@gmail.com",
-      "role": "Viewer",
-      "status": "active",
-      "avatar": "F",
-      "color": "green",
-      "orders": 0,
-      "joinedAt": "2026-04-18",
-      "createdAt": 1776472696265
-    },
-    {
-      "id": "7-gqpEDlGRQ",
-      "name": "sdfdfasfer",
-      "email": "saharsalemcs@gmail.com",
-      "role": "Viewer",
-      "status": "active",
-      "avatar": "S",
-      "color": "coral",
-      "orders": 0,
-      "joinedAt": "2026-04-18",
-      "createdAt": 1776472706577
     },
     {
       "id": "sbTa3THKE0o",

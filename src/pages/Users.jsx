@@ -1,19 +1,19 @@
 import { useMemo, useState } from "react";
 import Button from "../components/UI/Button";
-import Modal from "../components/Modal";
+import Modal from "../components/users/Modal";
 import Card from "../components/UI/Card";
 import styles from "./Users.module.css";
-import AddUserForm from "../components/AddUserForm";
+import AddUserForm from "../components/users/AddUserForm";
 import { useUsersApi } from "../hooks/useUsersApi";
-import MiniStat from "../components/MiniStat";
-import Toolbar from "../components/Toolbar";
+import MiniStat from "../components/users/MiniStat";
+import Toolbar from "../components/common/Toolbar";
 import { useSearch } from "../hooks/useSearch";
 import EmptyState from "../components/UI/EmptyState";
-import UsersTable from "../components/UsersTable";
-import ConfirmDeleteUser from "../components/ConfirmDeleteUser";
+import UsersTable from "../components/users/UsersTable";
+import ConfirmDeleteUser from "../components/users/ConfirmDeleteUser";
 import Spinner from "../components/UI/Spinner";
 import Error from "../components/UI/Error";
-import Pagination from "../components/Pagination";
+import Pagination from "../components/common/Pagination";
 import { usePagination } from "../hooks/usePagination";
 
 const FILTER_OPTIONS = [
