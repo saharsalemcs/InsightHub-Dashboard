@@ -116,7 +116,7 @@ function Orders() {
         {/* Table */}
         {filtered.length === 0 ? (
           <EmptyState
-            icon={<CartIcon />}
+            icon={<ShoppingCart />}
             title="No products found"
             description="Try adjusting your search or filter."
           />
